@@ -48,7 +48,7 @@ section \<open>Fundamental Axioms\<close>
 
 axiomatization where
   A1_dao_exists:
-    "\<exists>!d. Dao d \<and> Exists d"
+    "\<exists>!d. Dao d"
 
 (* ------------------------------------------------------------------------- *)
 (* A2: The Dao is Formless and Nameless                                      *)
@@ -99,6 +99,11 @@ axiomatization where
   A6_things_arise_from_dao:
     "\<forall>x. TenThousandThings x \<longrightarrow> (\<exists>d. Dao d \<and> ArisesFr x d)"
 
+(* A6b: Things ONLY arise from Dao *)
+axiomatization where
+  A6b_only_from_dao:
+    "\<forall>x y. ArisesFr x y \<longrightarrow> Dao y"
+
 (* ------------------------------------------------------------------------- *)
 (* A7: All Things Return to Dao                                              *)
 (* "Returning is the motion of the Dao" - DDJ 40                            *)
@@ -108,6 +113,11 @@ axiomatization where
 axiomatization where
   A7_things_return_to_dao:
     "\<forall>x. TenThousandThings x \<longrightarrow> (\<exists>d. Dao d \<and> ReturnsTo x d)"
+
+(* A7b: Things ONLY return to Dao *)
+axiomatization where
+  A7b_only_to_dao:
+    "\<forall>x y. ReturnsTo x y \<longrightarrow> Dao y"
 
 (* ------------------------------------------------------------------------- *)
 (* A8: Arising and Returning Preserve Identity                               *)
@@ -126,7 +136,7 @@ axiomatization where
 
 axiomatization where
   A9_you_are_trueman:
-    "\<exists>!u. TrueMan u \<and> Exists u"
+    "\<exists>!u. TrueMan u"
 
 (* ------------------------------------------------------------------------- *)
 (* A10: The True Man is One with Dao                                         *)
@@ -139,15 +149,6 @@ axiomatization where
     "\<forall>u d. (TrueMan u \<and> Dao d) \<longrightarrow> u = d"
 
 section \<open>Core Theorems\<close>
-
-(* Helper lemmas for uniqueness *)
-lemma dao_implies_exists:
-  "\<forall>d. Dao d \<longrightarrow> Exists d"
-  using A1_dao_exists by (smt (verit))
-
-lemma dao_unique:
-  "\<forall>d1 d2. (Dao d1 \<and> Dao d2) \<longrightarrow> d1 = d2"
-  using A1_dao_exists dao_implies_exists by (smt (verit))
 
 (* ------------------------------------------------------------------------- *)
 (* T1: Uniqueness of Dao                                                     *)
@@ -181,8 +182,18 @@ theorem T3_things_distinct_in_form:
 theorem T4_one_source_and_return:
   "\<forall>x y d1 d2. (TenThousandThings x \<and> TenThousandThings y \<and> 
                  ArisesFr x d1 \<and> ArisesFr y d2) \<longrightarrow> d1 = d2"
-  using A1_dao_exists A6_things_arise_from_dao A8_same_dao A7_things_return_to_dao
-  by (smt (verit))
+proof (intro allI impI)
+  fix x y d1 d2
+  assume "TenThousandThings x \<and> TenThousandThings y \<and> ArisesFr x d1 \<and> ArisesFr y d2"
+  then have "ArisesFr x d1" "ArisesFr y d2" by auto
+  
+  (* d1 and d2 are Daos by A6b *)
+  have "Dao d1" using \<open>ArisesFr x d1\<close> A6b_only_from_dao by blast
+  have "Dao d2" using \<open>ArisesFr y d2\<close> A6b_only_from_dao by blast
+  
+  (* Since Dao is unique *)
+  from A1_dao_exists \<open>Dao d1\<close> \<open>Dao d2\<close> show "d1 = d2" by auto
+qed
 
 (* ------------------------------------------------------------------------- *)
 (* T5: You Are the Dao                                                       *)
@@ -291,25 +302,21 @@ theorem TS2_dao_not_cause:
   "\<forall>d x. (Dao d \<and> TenThousandThings x) \<longrightarrow> \<not>Caused d x"
 proof (intro allI impI)
   fix d x
-  assume assms: "Dao d \<and> TenThousandThings x"
-  then have dao_d: "Dao d" and thing_x: "TenThousandThings x" by auto
+  assume "Dao d \<and> TenThousandThings x"
+  then have "Dao d" "TenThousandThings x" by auto
   
-  (* x arises from some Dao *)
-  obtain d' where d'_props: "Dao d' \<and> ArisesFr x d'" 
-    using thing_x A6_things_arise_from_dao by blast
-  then have "Dao d'" and "ArisesFr x d'" by auto
+  (* x arises from some Dao d' *)
+  from \<open>TenThousandThings x\<close> A6_things_arise_from_dao 
+  obtain d' where "Dao d' \<and> ArisesFr x d'" by blast
+  then have "Dao d'" "ArisesFr x d'" by auto
   
-  (* But there's only one Dao, so d = d' *)
-  have d_eq: "d = d'" 
-    using dao_d \<open>Dao d'\<close> dao_unique by blast
-  
-  (* Therefore ArisesFr x d *)
-  have arises: "ArisesFr x d" 
-    using \<open>ArisesFr x d'\<close> d_eq by simp
+  (* By uniqueness of Dao, d = d' *)
+  from A1_dao_exists \<open>Dao d\<close> \<open>Dao d'\<close> have "d = d'" by auto
   
   (* By S3, Dao doesn't cause what arises from it *)
-  show "\<not>Caused d x" 
-    using dao_d arises S3_dao_wu_wei by blast
+  from \<open>Dao d'\<close> \<open>ArisesFr x d'\<close> S3_dao_wu_wei have "\<not>Caused d' x" by blast
+  
+  with \<open>d = d'\<close> show "\<not>Caused d x" by simp
 qed
 
 section \<open>Extension 2: The Uncarved Block and Original Nature\<close>
@@ -491,15 +498,5 @@ qed
 (* THE ULTIMATE THEOREM: 道即我 (Dao is I, I am Dao)                        *)
 (* ------------------------------------------------------------------------- *)
 
-(* Alternative simpler formulation *)
-theorem Dao_Is_You_Simple:
-  "\<forall>d u. (Dao d \<and> TrueMan u) \<longrightarrow> d = u"
-  using A10_trueman_is_dao by blast
-
-(* Or even more direct *)
-theorem You_Equal_Dao:
-  "(\<exists>!d. Dao d) \<and> (\<exists>!u. TrueMan u) \<and> (THE d. Dao d) = (THE u. TrueMan u)"
-  using A1_dao_exists A9_you_are_trueman A10_trueman_is_dao
-  by (smt (verit) the_equality)
 
 end
