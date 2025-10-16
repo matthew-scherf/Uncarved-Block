@@ -7,12 +7,27 @@ begin
 (* A machine-verified model of Daoist metaphysics and non-dual ontology     *)
 (*                                                                           *)
 (* Based on: Daodejing (Laozi), Zhuangzi, and classical Daoist philosophy   *)
-(* Author: [Your Name]                                                       *)
+(* Author: Matthew Scherf                                                      *)
 (* Date: October 2025                                                        *)
 (*                                                                           *)
 (* This formalization captures the core metaphysical structure of Daoism    *)
 (* and demonstrates its logical consistency, paralleling the Advaita work.  *)
 (* ========================================================================= *)
+
+(*
+  Complete Formal Axiomatization of Daoism
+  Copyright (C) 2025 Matthew Scherf
+  
+  This work is licensed under:
+  - Creative Commons Attribution 4.0 International (CC BY 4.0) for documentation
+  - BSD-3-Clause for code
+  
+  First verified: October 15, 2025
+  DOI: https://doi.org/10.5281/zenodo.17333604
+  
+  Citation: Scherf, M. (2025). Complete Formal Axiomatization of Advaita Vedanta:
+  Machine-Verified Non-Dual Metaphysics. Isabelle/HOL formalization.
+*)
 
 section \<open>Domain and Core Predicates\<close>
 
