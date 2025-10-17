@@ -23,7 +23,7 @@ begin
   - BSD-3-Clause for code
   
   First verified: October 15, 2025
-  DOI: https://doi.org/10.5281/zenodo.17333604
+  DOI: https://doi.org/10.5281/zenodo.17373688
   
   Citation: Scherf, M. (2025). Complete Formal Axiomatization of Advaita Vedanta:
   Machine-Verified Non-Dual Metaphysics. Isabelle/HOL formalization.
