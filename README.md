@@ -71,7 +71,7 @@ We are currently exploring formalization of Zen Buddhism as a third non-dual tra
 
 The broader implication is that non-dualism becomes philosophy-agnostic. If Indian, Chinese, and potentially Japanese traditions independently arrive at machine-verifiable variants of the same basic metaphysical structure, this supports the hypothesis that non-dual awareness reflects something fundamental about the nature of mind rather than particular religious commitments.
 
-## Verfiication
+## Verification
 
 Verification requires Isabelle/HOL 2025 which is available freely from the official Isabelle website. Clone this repository and navigate to the theory directory. The build process takes approximately 15 seconds on standard hardware.
 
