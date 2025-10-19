@@ -10,6 +10,10 @@ This formalization represents the second in a series of machine-verified non-dua
 
 This project complements our previous work on Advaita Vedanta and extends the methodology of formal verification to Chinese philosophical traditions. Together these formalizations establish that non-dual metaphysics is not culturally bound mysticism but rather a logically coherent framework that appears independently across civilizations. The consistency of both systems under mechanical verification suggests that non-dualism may represent deep structural features of consciousness itself rather than contingent religious doctrine.
 
+Other work:
+- [Advaita Vedanta](https://github.com/matthew-scherf/Only-One/) - Machine-verified Advaita
+- [Dzogchen](https://github.com/matthew-scherf/Great-Perfection/) - Machine-verified Dzogchen
+- [Empirical Non-Duality](https://github.com/matthew-scherf/The-Unique-Onic-Substrate/) - Machine-verified Unique Ontic Substrate
 ---
 
 ## Table of Contents
