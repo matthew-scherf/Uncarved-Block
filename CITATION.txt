@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below."
+type: software
+title: "Formal Axiomatization of Daoist Philosophy: Machine-Verified Non-Dual Metaphysics"
+abstract: "Complete formal axiomatization of classical Daoist philosophy in Isabelle/HOL 2025, proving internal consistency of non-dual metaphysics including the Dao, spontaneity, wu-wei, and original nature."
+authors:
+  - family-names: "Scherf"
+    given-names: "Matthew"
+    DOI: 10.5281/zenodo.17373688
+repository-code: "https://github.com/[your-username]/Daoism"
+keywords:
+  - Daoism
+  - Taoism
+  - formal verification
+  - Isabelle/HOL
+  - non-dualism
+  - Chinese philosophy
+  - theorem proving
+  - formal logic
+  - comparative philosophy
+  - spontaneity
+date-released: 2025-10-19
+version: "1.0.0"
+license: 
+  - BSD-3-Clause
+  - CC-BY-4.0
