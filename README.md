@@ -1,10 +1,11 @@
-# The Way That Can Be Formalized
+# The Formal Way
 
 **A machine-verified axiomatization of Daoist philosophy in Isabelle/HOL proving that spontaneous arising and non-dual awareness can be expressed within modern formal logic**
 
 [![Verification Status](https://img.shields.io/badge/verification-passing-brightgreen)](verification/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](LICENSE.txt)
 [![DOI](https://zenodo.org/badge/1077613129.svg)](https://doi.org/10.5281/zenodo.17373688)
+
 This formalization represents the second in a series of machine-verified non-dual philosophical systems. Following our complete axiomatization of Advaita Vedanta, this work demonstrates that the classical Daoist metaphysics of Laozi and Zhuangzi admits rigorous logical treatment. The formal system captures the relationship between the formless Dao and the ten thousand things while proving theorems about spontaneity, emptiness, and original nature. All proofs verified October 2025 using Isabelle/HOL 2025 with zero failed goals.
 
 This project complements our previous work on Advaita Vedanta and extends the methodology of formal verification to Chinese philosophical traditions. Together these formalizations establish that non-dual metaphysics is not culturally bound mysticism but rather a logically coherent framework that appears independently across civilizations. The consistency of both systems under mechanical verification suggests that non-dualism may represent deep structural features of consciousness itself rather than contingent religious doctrine.
@@ -25,8 +26,6 @@ This project complements our previous work on Advaita Vedanta and extends the me
 - [License](#license)
 
 ---
-
-## What This Proves
 
 The formalization establishes through mechanical verification that classical Daoist metaphysics is internally consistent and admits precise logical treatment. Using 10 core axioms and 3 extensions totaling 10 additional axioms, the system proves 13 major theorems including a complete non-dual realization theorem.
 
@@ -49,7 +48,7 @@ This states precisely that there exists exactly one entity which is simultaneous
 
 The theorem unifies metaphysics, ontology, and soteriology in a single formal statement. It proves that what appears as separate domains in ordinary discourse actually describes one reality from different angles.
 
-## Why Formalize Daoism
+## On Formalising Daoism
 
 The opening line of the Daodejing states that the Dao which can be named is not the eternal Dao. This might seem to preclude formalization entirely. How can logical symbols capture what transcends language?
 
@@ -71,7 +70,7 @@ We are currently exploring formalization of Zen Buddhism as a third non-dual tra
 
 The broader implication is that non-dualism becomes philosophy-agnostic. If Indian, Chinese, and potentially Japanese traditions independently arrive at machine-verifiable variants of the same basic metaphysical structure, this supports the hypothesis that non-dual awareness reflects something fundamental about the nature of mind rather than particular religious commitments.
 
-## How to Verify
+## Verfiication
 
 Verification requires Isabelle/HOL 2025 which is available freely from the official Isabelle website. Clone this repository and navigate to the theory directory. The build process takes approximately 15 seconds on standard hardware.
 
