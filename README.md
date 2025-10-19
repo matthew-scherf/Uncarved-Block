@@ -14,11 +14,11 @@ This project complements our previous work on Advaita Vedanta and extends the me
 
 ## Table of Contents
 
-- [What This Proves](#what-this-proves)
+- [Proven](#proven)
 - [The Central Theorem](#the-central-theorem)
 - [Why Formalize Daoism](#why-formalize-daoism)
 - [Relationship to Other Traditions](#relationship-to-other-traditions)
-- [How to Verify](#how-to-verify)
+- [Verification](#verification)
 - [The Axiom System](#the-axiom-system)
 - [Key Theorems](#key-theorems)
 - [Philosophical Implications](#philosophical-implications)
@@ -26,6 +26,7 @@ This project complements our previous work on Advaita Vedanta and extends the me
 - [License](#license)
 
 ---
+## Proven
 
 The formalization establishes through mechanical verification that classical Daoist metaphysics is internally consistent and admits precise logical treatment. Using 10 core axioms and 3 extensions totaling 10 additional axioms, the system proves 13 major theorems including a complete non-dual realization theorem.
 
